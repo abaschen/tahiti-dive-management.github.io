@@ -1,5 +1,5 @@
 baseURL: "https://tahiti-dive-management.com/"
-copyright: 'Copyright © 2021-{{ year }} Tahiti Dive Management. All Rights Reserved.'
+copyright: 'Copyright © {{ year }} Tahiti Dive Management. All Rights Reserved.'
 defaultContentLanguage: "en"
 defaultContentLanguageInSubdir: true
 enableRobotsTXT: true
@@ -30,8 +30,7 @@ params:
   site_logo: img/tdm-logo.webp
 title: Tahiti Dive Management
 
-theme:
-- github.com/theNewDynamic/gohugo-theme-ananke
+theme: ananke
 module:
   imports:
   - path: github.com/hugo-mods/icons
