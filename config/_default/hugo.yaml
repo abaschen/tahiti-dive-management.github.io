@@ -14,9 +14,6 @@ params:
   disable_share: true
   background_color_class: "bg-near-black"
   featured_image_class: "contain bg-top"
-  social:
-    facebook:
-      username: Tahiti-Dive-Management-219479998998180
   ananke.socials:
     facebook:
         username: Tahiti-Dive-Management-219479998998180
