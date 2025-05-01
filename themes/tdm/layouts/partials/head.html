@@ -1,0 +1,20 @@
+{{ .Scratch.Add "trace" "<head.html>" }}
+<head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer-when-downgrade"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    
+    {{ with resources.Get "sass/main.scss" }}
+        {{ with . | css.Sass | minify | fingerprint "sha256" }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+        {{ end }}
+    {{ end }}
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+
+{{ .Scratch.Add "trace" "</head.html>" }}

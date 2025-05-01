@@ -1,10 +1,15 @@
 {
     "name": "Hugo",
-    "image": "mcr.microsoft.com/devcontainers/go:bookworm",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
     "features": {
         "ghcr.io/devcontainers/features/hugo:1": {
             "extended": true
-        }
+        },
+        "ghcr.io/devcontainers/features/go:1": {},
+        "ghcr.io/devcontainers-extra/features/prettier:1": {}
+    },
+    "containerEnv": {
+        "GOPROXY": "direct"
     },
     "customizations": {
         "vscode": {
@@ -12,8 +17,8 @@
                 "amazonwebservices.amazon-q-vscode",
                 "budparr.language-hugo-vscode",
                 "GitHub.vscode-github-actions",
-                "mblode.twig-language-2",
-                "golang.Go"
+                "golang.Go",
+                "esbenp.prettier-vscode"
             ],
             "settings": {
                 "editor.formatOnSave": true,
@@ -38,27 +43,33 @@
     },
     "mounts": [
         {
+            "source": "go-cache",
+            "target": "/home/vscode/.cache/go-build",
+            "type": "volume"
+        },
+        {
             "source": "${localEnv:HOME}/.midway",
-            "target": "/home/vscode/.midway",
+            "target": "/home/node/.midway",
             "type": "bind"
         },
         {
             "source": "${localEnv:HOME}/.aws",
-            "target": "/home/vscode/.aws",
+            "target": "/home/node/.aws",
             "type": "bind"
         },
         {
             "source": "${localEnv:HOME}/.ssh",
-            "target": "/home/vscode/.ssh",
+            "target": "/home/node/.ssh",
             "type": "bind"
         },
         {
             "source": "${localEnv:HOME}/.gitconfig-personal",
-            "target": "/home/vscode/.gitconfig-personal",
+            "target": "/home/node/.gitconfig-personal",
             "type": "bind"
         }
     ],
-    "remoteUser": "vscode",
+    "postCreateCommand": "sudo npm i -g prettier prettier-plugin-go-template",
+    "remoteUser": "node",
     "forwardPorts": [
         1313
     ]

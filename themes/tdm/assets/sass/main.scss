@@ -1,0 +1,22 @@
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-start {
+    margin-right: auto;
+}
+
+/* Hero section styling */
+.hero.is-fullheight {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('{{ .Site.Params.heroImage }}');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-body .title {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

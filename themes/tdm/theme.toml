@@ -3,12 +3,12 @@
 
 name = "Tdm"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+licenselink = "https://github.com/abaschen/hugo-tdm-theme/blob/master/LICENSE"
 description = ""
 homepage = "http://example.com/"
 tags = []
 features = []
-min_version = "0.41.0"
+min_version = "0.145.0"
 
 [author]
   name = ""

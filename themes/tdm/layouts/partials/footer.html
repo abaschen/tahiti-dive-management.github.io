@@ -1,0 +1,32 @@
+{{ .Scratch.Add "trace" "<footer.html>" }}
+<footer class="footer">
+	<div class="content has-text-centered">
+
+		{{ if ne .Site.Params.footer.showContactIcons false }}
+			<p class="icons">
+				{{ range .Site.Params.contacts }}
+					<a href="{{ .url | safeURL }}" aria-label='{{ i18n "{{ .label }}" }}'>
+						<i class="{{ .icon }}"></i>
+					</a>
+				{{ end }}
+			</p>
+		{{ end }}
+
+
+		{{ with .Site.Params.copyright }}
+			<p class="copyright">{{ replace . "{year}" now.Year | safeHTML }}</p>
+		{{ end }}
+
+		{{ if ne .Params.enableGitInfo false }}
+			{{- if $.GitInfo -}}
+				<p>
+					version:
+					{{ .Lastmod.Format "2006-01-02" }}
+					| #{{ .GitInfo.AbbreviatedHash }}
+				</p>
+			{{- end -}}
+		{{ end }}
+
+	</div>
+</footer>
+{{ .Scratch.Add "trace" "</footer.html>" }}

@@ -1,6 +1,7 @@
 ---
 title: "About Us"
 menus: about-us
+weight: 3
 ---
 
-Learn more about Tahiti Dive Management...
+About us
